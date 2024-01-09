@@ -1,0 +1,20 @@
+{
+  "name": "mapty",
+  "version": "1.0.0",
+  "description": "map your exercise",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel ./index.html",
+    "build": "parcel build index.html ./dist"
+  },
+  "author": "jrpranav",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel": "^2.11.0"
+  },
+  "dependencies": {
+    "core-js": "^3.35.0",
+    "leaflet": "^1.9.4",
+    "regenerator-runtime": "^0.14.1"
+  }
+}
