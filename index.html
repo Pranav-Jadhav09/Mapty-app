@@ -6,11 +6,142 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Mapty</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="./src/assets/icon.png" />
 
-    <!-- Style & Script -->
-    <link rel="stylesheet" href="./src/" />
-    <script src="./src/"></script>
+    <!-- Stylesheet & Script File -->
+    <!-- <link rel="stylesheet" href="./src/" /> -->
+    <!-- <script src="./src/"></script> -->
+
+    <title>Mapty &mdash; Map Your Workouts</title>
   </head>
-  <body></body>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <img src="./src/assets/logo.png" alt="logo" class="logo" />
+
+      <ul class="workouts">
+        <!-- Input Form -->
+        <form class="form hidden">
+          <!-- Type Of Exercise -->
+          <div class="form-row">
+            <label for="type" class="form-label">Type</label>
+
+            <select name="exercise" class="form-input form-input-type">
+              <option value="running">Running</option>
+              <option value="cycling">Cycling</option>
+            </select>
+          </div>
+
+          <!-- Distance -->
+          <div class="form-row">
+            <label for="distance" class="form-label">Distance</label>
+            <input
+              type="text"
+              class="form-input form-input--distance"
+              placeholder="Km"
+            />
+          </div>
+
+          <!-- Duration -->
+          <div class="form-row">
+            <label for="duration" class="form-label">Duration</label>
+            <input
+              type="text"
+              class="form-input form-input--duration"
+              placeholder="min"
+            />
+          </div>
+
+          <!-- Cadence -->
+          <div class="form-row">
+            <label for="cadence" class="form-label">Cadence</label>
+            <input
+              type="text"
+              class="form-input form-input--cadence"
+              placeholder="steps/min"
+            />
+          </div>
+
+          <!-- Elevation Gain -->
+          <div class="form-row form-row--hidden">
+            <label for="elev-gain" class="form-label">Elev Gain</label>
+            <input
+              type="text"
+              class="form-input form-input--elevation"
+              placeholder="meters"
+            />
+          </div>
+        </form>
+
+        <!-- Running -->
+        <li class="workout workout--running" data-id="1234567890">
+          <h2 class="workout-title">Running on April 14</h2>
+
+          <div class="workout-details">
+            <span class="workout-icon">🏃🏻‍♂️</span>
+            <span class="workout-value">5.3</span>
+            <span class="workout-unit">km</span>
+          </div>
+
+          <div class="workout-details">
+            <span class="workout-icon">⏱</span>
+            <span class="workout-value">24</span>
+            <span class="workout-unit">min</span>
+          </div>
+
+          <div class="workout-details">
+            <span class="workout-icon">⚡️</span>
+            <span class="workout-value">4.6</span>
+            <span class="workout-unit">km/hr</span>
+          </div>
+
+          <div class="workout-details">
+            <span class="workout-icon">🦶🏻</span>
+            <span class="workout-value">178</span>
+            <span class="workout-unit">spm</span>
+          </div>
+        </li>
+
+        <!-- Cycling -->
+        <li class="workout workout--running" data-id="1234567891">
+          <h2 class="workout-title">Cycling on April 5</h2>
+
+          <div class="workout-details">
+            <span class="workout__icon">🚴‍♀️</span>
+            <span class="workout__value">27</span>
+            <span class="workout__unit">km</span>
+          </div>
+
+          <div class="workout-details">
+            <span class="workout-icon">⏱</span>
+            <span class="workout-value">95</span>
+            <span class="workout-unit">min</span>
+          </div>
+
+          <div class="workout-details">
+            <span class="workout-icon">⚡️</span>
+            <span class="workout-value">4.6</span>
+            <span class="workout-unit">km/hr</span>
+          </div>
+
+          <div class="workout-details">
+            <span class="workout-icon">⛰</span>
+            <span class="workout-value">128</span>
+            <span class="workout-unit">m</span>
+          </div>
+        </li>
+      </ul>
+
+      <p class="copyright">
+        &copy; Created by
+        <a href="https://jrpranav.com" target="_blank" class="portfolio-link"
+          >JR.Pranav</a
+        >
+      </p>
+    </div>
+
+    <!-- Map -->
+    <div id="map"></div>
+  </body>
 </html>
