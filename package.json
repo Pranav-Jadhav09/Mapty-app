@@ -1,7 +1,7 @@
 {
   "name": "mapty",
   "version": "1.0.0",
-  "description": "map your exercise",
+  "description": "Map Your Exercise",
   "main": "index.js",
   "scripts": {
     "start": "parcel ./index.html",
