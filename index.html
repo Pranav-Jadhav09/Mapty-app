@@ -37,26 +37,28 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="./src/assets/icon.png" />
 
-    <!-- CSS CDN -->
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheets -->
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin=""
     />
+    <link rel="stylesheet" href="./src/css/style.css" />
+
+    <!-- Script Files -->
     <script
       defer
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""
     ></script>
-
-    <!-- Stylesheet & Script -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./src/css/style.css" />
     <script defer src="./src/js/script.js"></script>
 
     <title>Mapty &mdash; Map Your Workouts</title>
@@ -71,7 +73,7 @@
         <form class="form hidden">
           <!-- Type Of Exercise -->
           <div class="form-row">
-            <label for="type" class="form-label">Type</label>
+            <label for="type" id="type" class="form-label">Type</label>
 
             <select name="exercise" class="form-input form-input-type">
               <option value="running">Running</option>
@@ -81,7 +83,9 @@
 
           <!-- Distance -->
           <div class="form-row">
-            <label for="distance" class="form-label">Distance</label>
+            <label for="distance" id="distance" class="form-label"
+              >Distance</label
+            >
             <input
               type="text"
               class="form-input form-input--distance"
@@ -91,7 +95,9 @@
 
           <!-- Duration -->
           <div class="form-row">
-            <label for="duration" class="form-label">Duration</label>
+            <label for="duration" id="duration" class="form-label"
+              >Duration</label
+            >
             <input
               type="text"
               class="form-input form-input--duration"
@@ -101,7 +107,7 @@
 
           <!-- Cadence -->
           <div class="form-row">
-            <label for="cadence" class="form-label">Cadence</label>
+            <label for="cadence" id="cadence" class="form-label">Cadence</label>
             <input
               type="text"
               class="form-input form-input--cadence"
@@ -111,7 +117,9 @@
 
           <!-- Elevation Gain -->
           <div class="form-row form-row--hidden">
-            <label for="elev-gain" class="form-label">Elev Gain</label>
+            <label for="elev-gain" id="elev-gain" class="form-label"
+              >Elev Gain</label
+            >
             <input
               type="text"
               class="form-input form-input--elevation"

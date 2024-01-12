@@ -129,6 +129,7 @@ body {
   margin-bottom: 0;
   opacity: 0;
 }
+
 .form-row {
   display: flex;
   align-items: center;
@@ -151,6 +152,11 @@ body {
 .form-input:focus {
   outline: none;
   background-color: #fff;
+}
+
+/* Hidden Class for Elev Gain */
+.form-row--hidden {
+  display: none;
 }
 
 /* Footer */
