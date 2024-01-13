@@ -74,8 +74,6 @@ class Cycling extends Workouts {
 const run1 = new Running([39, -12], 5.2, 24, 178);
 const cyc1 = new Cycling([39, -12], 27, 95, 523);
 
-console.log(run1, cyc1);
-
 /////////////////////////////
 // Application Architecture
 
@@ -119,8 +117,6 @@ class App {
     const { latitude } = position.coords;
     const { longitude } = position.coords;
     const coords = [latitude, longitude];
-
-    console.log(this);
 
     this.#map = L.map('map').setView(coords, 13);
 
@@ -202,10 +198,12 @@ class App {
 
     // Add new object to workout array
     this.#workouts.push(workout);
-    console.log(workout);
 
     // Render workout on map as marker
     this._renderWorkoutMarker(workout);
+
+    // Render workouts in list
+    this._renderWorkoutList(workout);
 
     // Hide the form + Clear the input fields
     this._hideForm();
@@ -227,6 +225,57 @@ class App {
         `${workout.type === 'running' ? '🏃🏻‍♂️' : '🚴🏻‍♂️'} ${workout.description}`
       )
       .openPopup();
+  }
+
+  _renderWorkoutList(workout) {
+    let markup = `
+    <li class="workout workout--${workout.type}" data-id="${workout.id}">
+          <h2 class="workout__title">Running on April 14</h2>
+          <div class="workout__details">
+            <span class="workout__icon">${
+              workout.type === 'running' ? '🏃‍♂️' : '🚴‍♀️'
+            }</span>
+            <span class="workout__value">${workout.distance}</span>
+            <span class="workout__unit">km</span>
+          </div>
+          <div class="workout__details">
+            <span class="workout__icon">⏱</span>
+            <span class="workout__value">${workout.duration}</span>
+            <span class="workout__unit">min</span>
+          </div>
+    `;
+
+    if (workout.type === 'running')
+      markup += `
+    <div class="workout__details">
+            <span class="workout__icon">⚡️</span>
+            <span class="workout__value">${workout.pace.toFixed(1)}</span>
+            <span class="workout__unit">min/km</span>
+          </div>
+          <div class="workout__details">
+            <span class="workout__icon">🦶🏼</span>
+            <span class="workout__value">${workout.cadence}</span>
+            <span class="workout__unit">spm</span>
+          </div>
+        </li>
+    `;
+
+    if (workout.type === 'cycling')
+      markup += `
+    <div class="workout__details">
+            <span class="workout__icon">⚡️</span>
+            <span class="workout__value">${workout.speed.toFixed(1)}</span>
+            <span class="workout__unit">km/h</span>
+          </div>
+          <div class="workout__details">
+            <span class="workout__icon">⛰</span>
+            <span class="workout__value">${workout.elevationGain}</span>
+            <span class="workout__unit">m</span>
+          </div>
+        </li>
+    `;
+
+    form.insertAdjacentHTML('afterend', markup);
   }
 }
 const app = new App();
