@@ -1,7 +1,5 @@
 'use strict';
 
-///////////////////////
-// Elements
 const months = [
   'January',
   'February',
@@ -19,15 +17,15 @@ const months = [
 
 const form = document.querySelector('.form');
 const containerWorkouts = document.querySelector('.workouts');
-const inputType = document.querySelector('.form-input--type');
-const inputDistance = document.querySelector('.form-input--distance');
-const inputDuration = document.querySelector('.form-input--duration');
-const inputCadance = document.querySelector('.form-input--cadance');
-const inputElevation = document.querySelector('.form-input--elevation');
+const inputType = document.querySelector('.form__input--type');
+const inputDistance = document.querySelector('.form__input--distance');
+const inputDuration = document.querySelector('.form__input--duration');
+const inputCadence = document.querySelector('.form__input--cadence');
+const inputElevation = document.querySelector('.form__input--elevation');
 
 let map, mapEvent;
 
-if (navigator.geolocation)
+if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(
     function (position) {
       const { latitude } = position.coords;
@@ -41,39 +39,33 @@ if (navigator.geolocation)
           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       }).addTo(map);
 
-      L.marker(coords)
-        .addTo(map)
-        .bindPopup(
-          L.popup({
-            autoClose: false,
-            closeOnClick: false,
-            className: 'cycling-popup',
-          })
-        )
-        .setPopupContent(`Out Side click function`)
-        .openPopup();
-
       // Handling Clicks on map
-      map.on('click', function (mapEv) {
-        mapEvent = mapEv;
-        const { lat, lng } = mapEvent.latlng;
-
-        L.marker([lat, lng])
-          .addTo(map)
-          .bindPopup(
-            L.popup({
-              maxWidth: 250,
-              minWidth: 100,
-              autoClose: false,
-              closeOnClick: false,
-              className: 'running-popup',
-            })
-          )
-          .setPopupContent('Workout')
-          .openPopup();
+      map.on('click', function (mapE) {
+        mapEvent = mapE;
+        form.classList.remove('hidden');
+        inputDuration.focus();
       });
     },
     function () {
       alert('Could Not Get Your Position!');
     }
   );
+}
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const { lat, lng } = mapEvent.latlng;
+
+  L.marker([lat, lng])
+    .addTo(map)
+    .bindPopup(
+      L.popup({
+        autoClose: false,
+        closeOnClick: false,
+        className: 'cycling-popup',
+      })
+    )
+    .setPopupContent(`Form Submit OK`)
+    .openPopup();
+});
