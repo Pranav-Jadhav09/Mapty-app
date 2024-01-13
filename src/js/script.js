@@ -1,18 +1,4 @@
 'use strict';
-const months = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
-];
 
 const form = document.querySelector('.form');
 const containerWorkouts = document.querySelector('.workouts');
@@ -22,12 +8,60 @@ const inputDuration = document.querySelector('.form__input--duration');
 const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
 
+class Workouts {
+  date = new Date();
+  id = (Date.now() + '').slice(-10);
+  clicks = 0;
+
+  constructor(coords, distance, duration) {
+    this.coords = coords; // in [lat,lng]
+    this.distance = distance; // in km
+    this.duration = duration; // in min
+  }
+
+  click() {
+    this.clicks++;
+  }
+}
+
+class Running extends Workouts {
+  type = 'running';
+
+  constructor(coords, distance, duration, cadence) {
+    super(coords, distance, duration);
+    this.cadence = cadence;
+    this.calcPace();
+  }
+
+  calcPace() {
+    // In Min/Km
+    this.pace = this.duration / this.distance;
+    return this.pace;
+  }
+}
+class Cycling extends Workouts {
+  type = 'cycling';
+
+  constructor(coords, distance, duration, elevationGain) {
+    super(coords, distance, duration);
+    this.elevationGain = elevationGain;
+    this.calcSpeed();
+  }
+
+  calcSpeed() {
+    // In Km/Hr
+    this.speed = this.distance / (this.duration / 60);
+    return this.speed;
+  }
+}
+
+const run1 = new Running([39, -12], 5.2, 24, 178);
+const cyc1 = new Cycling([39, -12], 27, 95, 523);
+
+console.log(run1, cyc1);
+
 /////////////////////////////
 // Application Architecture
-
-class Workouts {}
-class Running extends Workouts {}
-class Cycling extends Workouts {}
 
 class App {
   #map;
