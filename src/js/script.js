@@ -89,18 +89,16 @@ class App {
   #mapZoomLvl = 13;
 
   constructor() {
-    // get current position event
+    // Get current position event
     this._getPosition();
 
     // Get data from localstorage
     this._getLocalStorage();
-    // this.reset();
 
-    // form submit event
+    // Add Event Handlers
     form.addEventListener('submit', this._newWorkout.bind(this));
-
-    // event to toggle type of exercise
     inputType.addEventListener('change', this._toggleElevField);
+    containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
   }
 
   _getPosition() {
@@ -297,6 +295,24 @@ class App {
 
     this.#workouts.forEach(workout => {
       this._renderWorkoutList(workout);
+    });
+  }
+
+  _moveToPopup(e) {
+    // easy fix: When we click on a workout before the map has loaded, we get an error.
+    if (!this.#map) return;
+
+    const workoutEl = e.target.closest('.workout');
+
+    if (!workoutEl) return;
+
+    const workout = this.#workouts.find(
+      work => work.id === workoutEl.dataset.id
+    );
+
+    this.#map.setView(workout.coords, this.#mapZoomLvl, {
+      animate: true,
+      pan: { duration: 1.5 },
     });
   }
 
