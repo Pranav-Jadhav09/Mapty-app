@@ -126,6 +126,9 @@ class App {
 
     // click event on map
     this.#map.on('click', this._showForm.bind(this));
+
+    // Gets from localStorage
+    this.#workouts.forEach(workout => this._renderWorkoutMarker(workout));
   }
 
   _showForm(mapE) {
