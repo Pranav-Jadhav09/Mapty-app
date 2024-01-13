@@ -71,9 +71,6 @@ class Cycling extends Workouts {
   }
 }
 
-const run1 = new Running([39, -12], 5.2, 24, 178);
-const cyc1 = new Cycling([39, -12], 27, 95, 523);
-
 /////////////////////////////
 // Application Architecture
 
@@ -118,7 +115,7 @@ class App {
     const { longitude } = position.coords;
     const coords = [latitude, longitude];
 
-    this.#map = L.map('map').setView(coords, 13);
+    this.#map = L.map('map').setView(coords, this.#mapZoomLvl);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution:
