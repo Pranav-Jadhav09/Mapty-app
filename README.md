@@ -10,7 +10,7 @@
 
 Track your workouts, map your runs and cycling routes with Mapty. Stay updated on workout schedules and locations
 
-<a href="https://mapty.vercel.app/"><strong>➥ Live on vercel.app</strong></a> <br />
+<a href="https://modern-mapty-app.vercel.app/"><strong>➥ Live on vercel.app</strong></a> <br />
 
 </div>
 
@@ -43,7 +43,7 @@ Track your workouts, map your runs and cycling routes with Mapty. Stay updated o
 
 ## Getting Started
 
-This project require some prequesites and dependenscies to be installed, you can view it online using this [demo](https://mapty.vercel.app). or you can find the instructions below
+This project require some prequesites and dependenscies to be installed, you can view it online using this [demo](https://modern-mapty-app.vercel.app/). or you can find the instructions below
 
 > To get a local copy, follow these simple steps :
 
