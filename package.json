@@ -2,9 +2,10 @@
   "name": "mapty",
   "version": "1.0.0",
   "description": "Track your workouts, map your runs and cycling routes with Mapty. Stay updated on workout schedules and locations.",
+  "default": "index.html",
   "scripts": {
     "start": "parcel ./index.html",
-    "build": "parcel build index.html ./dist"
+    "build": "parcel build index.html --dist-dir ./dist"
   },
   "author": "jrpranav",
   "license": "MIT",
@@ -13,7 +14,6 @@
   },
   "dependencies": {
     "core-js": "^3.35.0",
-    "leaflet": "^1.9.4",
     "regenerator-runtime": "^0.14.1"
   }
 }

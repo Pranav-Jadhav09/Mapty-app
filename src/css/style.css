@@ -1,3 +1,4 @@
+/* Colors */
 :root {
   --color-brand--1: #ffb545;
   --color-brand--2: #00c46a;
@@ -114,6 +115,7 @@ a:visited {
   font-weight: 800;
 }
 
+/* Form */
 .form {
   background-color: var(--color-dark--2);
   border-radius: 5px;
@@ -172,19 +174,18 @@ a:visited {
   display: none;
 }
 
+/* Footer */
 .copyright {
   margin-top: auto;
   font-size: 1.3rem;
   text-align: center;
   color: var(--color-light--1);
 }
-
 .linkedin-link:link,
 .linkedin-link:visited {
   color: var(--color-light--1);
   transition: all 0.2s;
 }
-
 .linkedin-link:hover,
 .linkedin-link:active {
   color: var(--color-light--2);
