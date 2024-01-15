@@ -41,6 +41,21 @@ Track your workouts, map your runs and cycling routes with Mapty. Stay updated o
 
 <br />
 
+## More Features to be added...
+
+- Ability to `edit` a workout
+- Ability to `delete` a workout
+- Ability to `delete all` workouts
+- Ability to `sort` workouts by a certain field (`e.g. distance`)
+- `Re-build` Running & cycling objecs coming from Local Storage
+- More realistic `error` and confirmation `message`
+- Ability to position the map to `show all workouts`
+- Ability to `draw lines and shapes` instead of just points
+- `Geocode location` from co-ordinates ("Run in Faro, Portugal")
+- `Display weather` data for workout time and place
+
+<br />
+
 ## Getting Started
 
 This project require some prequesites and dependenscies to be installed, you can view it online using this [demo](https://modern-mapty-app.vercel.app/). or you can find the instructions below
